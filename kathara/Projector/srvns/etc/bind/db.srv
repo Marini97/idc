@@ -1,0 +1,14 @@
+$TTL   60000
+@               IN      SOA     dns.srv.    root.dns.srv. (
+                        2006031201 ; serial
+                        28800 ; refresh
+                        14400 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@                  IN      NS      dns.srv.
+dns                IN      A       15.0.0.11
+
+web                IN      A       20.0.0.2
+
+
