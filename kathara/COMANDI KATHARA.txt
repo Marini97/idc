@@ -1,0 +1,57 @@
+
+COMANDI KATHARA
+
+lstart -->  per avviare il laboratorio
+Lclean  -->  per chiudere il laboratorio
+route -->  per vedere tabelle di routing
+traceroute  ip  --> riporta tutti gli hop per arrivare all'indirizzo di destinazione
+ifconfig -->  per vedere la configurazione del router/pc
+tcpdump -tenni th0  -->  sniffa/legge tutti i pacchetti che passano per quella porta
+ping  ip porta  -->  invia pacchetti alla porta specificata
+ifconfig eth up/down  -->  per aprire/chiudere un interfaccia
+route add -net 195.11.14.0/24 gw 100.0.0.9 dev eth1  -->  se devo inviare un pacchetto alla rete 195.11.14.0/24 lo invio al gw 100.0.0.9 dalla porta eth1
+
+
+
+Per settare una Gateway su un router, se voglio mandare un pacchetto ad un qualsiasi indirizzo ip che inizia 100.1.0.0/16 lo invii sulla porta 100.2.0.1:
+
+route add -net 100.1.0.0/16 gw 100.2.0.1
+
+Ogni volta che questo router deve inviare un pacchetto ad una rete che non è presente nella routine table lo invia sulla default gateway
+route add default gw 100.2.0.2
+
+
+
+
+
+vtysh -->  sto entrando dentro il FRRouting che mi permette di configurare il router {
+show ip route --> mostra la tabella ip route table
+show ip ospf interaface  -->  per vedere le informazioni di interfaccia del protocollo ospf su quel router
+show ip ospf neightbour  -->  per vedere la lista degli indirizzi delle porte dei router vicini rispetto il protocollo ospf
+Configure terminal  -->  se voglio configurare il protocollo del router
+}
+exit per uscire da questa modalità
+vtysh -e "show ip ospf interface"  -->  per eseguire il comando senza entrare nella modalità vtysh
+
+
+
+
+
+
+Da fare nello startup dei router per lanciare i demoni dei router
+Start demoni -->  /etc/init.d/frr start
+
+Da fare nello startup dei server dns per lanciare il programma per il dns
+/etc/init.d/bind start
+
+Da fare nello startup dei server web per lanciare il programma per il web
+/etc/init.d/apache2 start
+
+
+Per aggiungere una default gateway sul protocollo rip vado nel file frr.conf del router che si vuole settare come default e scrivo:
+
+Quindi la rotta per qualsiasi indirizzo non conosce la rete è me stesso
+route 0.0.0.0/0 
+
+Quindi la rotta per qualsiasi indirizzo con questo prefisso è me stesso
+route 30.0.0.0/8
