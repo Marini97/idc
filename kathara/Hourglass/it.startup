@@ -1,0 +1,4 @@
+ifconfig eth0 50.50.3.3/24 up
+route add default gw 50.50.3.2
+
+/etc/init.d/bind start

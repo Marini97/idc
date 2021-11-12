@@ -1,0 +1,12 @@
+$TTL   60000
+@               IN      SOA     nomedns.it.    root.nomedns.it. (
+                        2006031201 ; serial
+                        28800 ; refresh
+                        14400 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@                  IN      NS      nomedns.it.
+nomedns              IN      A       50.50.3.3
+
+www    IN      A       50.50.1.2

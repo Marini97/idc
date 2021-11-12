@@ -1,0 +1,4 @@
+ifconfig eth0 40.40.4.3/24 up
+route add default gw 40.40.4.1
+
+/etc/init.d/bind start

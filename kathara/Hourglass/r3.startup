@@ -1,0 +1,6 @@
+ifconfig eth0 10.1.0.2/30 up
+ifconfig eth1 50.50.4.2/24 up
+ifconfig eth2 50.50.2.2/24 up
+route add -net 40.40.0.0/16 gw 10.1.0.1
+
+/etc/init.d/frr start
